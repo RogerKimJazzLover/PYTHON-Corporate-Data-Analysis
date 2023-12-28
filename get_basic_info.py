@@ -1,11 +1,12 @@
 #THIS 'API_KEYS' IS A PYTHON FILE OF MINE THAT SOTERS MY PRIVATE API KEYS.
 from API_KEYS import * #SO DELETE THIS LINE!!!!!
 
+import lib_one
+
 import FinanceDataReader as fdr
+from tabulate import tabulate
 import OpenDartReader
 import pandas as pd
-from tabulate import tabulate
-import lib_one
 import pickle
 
 def GetIncreaseRate(BasicInfo):
@@ -35,23 +36,23 @@ def GetProfitStatus(BasicInfo):
         if keys == "Revenue_Profit_Status" or triger:
             triger = True
             if BasicInfo[keys.replace("_Profit_Status", '')][0] > 0:
-                status = "흑자"
+                status = "P"
             else:
-                status = "적자"
+                status = "L"
             BasicInfo[keys].append(status)
             for i in range(1, 6):
                 if BasicInfo[keys.replace("_Profit_Status", '')][i] > 0:
-                    status = "흑자"
+                    status = "P"
                     if BasicInfo[keys.replace("_Profit_Status", '')][i-1] > 0:
-                        status += "지속"
+                        status += "_Contd"
                     else:
-                        status += "전환"
+                        status += "_Turned"
                 else:
-                    status = "적자"
+                    status = "L"
                     if BasicInfo[keys.replace("_Profit_Status", '')][i-1] > 0:
-                        status += "지속"
+                        status += "_Contd"
                     else:
-                        status += "전환"
+                        status += "_Turned"
                 BasicInfo[keys].append(status)
             if keys == "Net_Income(added)_Profit_Status":
                 break
