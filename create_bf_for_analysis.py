@@ -1,8 +1,11 @@
+import lib_one
+
 import FinanceDataReader as fdr
 from tabulate import tabulate
+from tqdm import tqdm
 import pandas as pd
-import lib_one
-import pickle
+import numpy as np
+import pickle, os
 
 def GetStockPrices(sp_data: pd.DataFrame, years: list) -> pd.DataFrame:
     '''
@@ -29,24 +32,36 @@ def GetStockPrices(sp_data: pd.DataFrame, years: list) -> pd.DataFrame:
     return pd.DataFrame(dict_stock_data)
     
 def main():
-    with open('../Invest/Data/name_code.pkl', 'rb') as f:
+    with open("./Data/name_code.pkl", 'rb') as f:
         name_code = pickle.load(f)
 
-    company_name = "삼성전자"
-
-    BasicInfo = pd.read_csv(f"../Invest/Data/{company_name}_basic_info.csv", encoding="euc-kr")
+    BasicInfo = pd.read_csv("./Data/basic_info.csv", encoding="euc-kr")
     BasicInfo.drop(['Total_Assets', 'Total_Debt', 'Total_Equity', 'Revenue', 'Operating_Income(added)', 'Net_Income(added)',], axis=1, inplace=True) #DELETING DATA THAT'S NOT GONNA BE USED
 
-    sp_data = fdr.DataReader(name_code[company_name], "2017-12-01", lib_one.GetDateToday()) #GETTING A DATAFRAME OF THE STOCKPRICES OF THE CORP_CODE CORPORATION
+    company_names = list(name_code.keys())
+    years = list(BasicInfo["Year"][:6])
+    stock_prices = pd.DataFrame({"Year":[], "Current_Stock":[], "Future_Stock":[]})
 
-    years = list(BasicInfo["Year"])
+    for i in tqdm(range(len(company_names))):
+        company_name = company_names[i]
+        try:
+            sp_data = fdr.DataReader(name_code[company_name], "2017-12-01", lib_one.GetDateToday()) #GETTING A DATAFRAME OF THE STOCKPRICES OF THE CORP_CODE CORPORATION
+            temp_stock_prices = GetStockPrices(sp_data, years)
+        except Exception as e:
+            print(e)
+            temp_stock_prices = pd.DataFrame({"Year":[np.nan]*6, "Current_Stock":[np.nan]*6, "Future_Stock":[np.nan]*6})
+            stock_prices = pd.concat([stock_prices, temp_stock_prices], ignore_index=True)
+            continue
+        stock_prices = pd.concat([stock_prices, temp_stock_prices], ignore_index=True)
 
-    stock_prices = GetStockPrices(sp_data, years)
-
-    BasicInfo = pd.merge(left=BasicInfo, right=stock_prices, on="Year", how="outer") #ADDING THE STOCKPRICES DF TO THE BASICINFO DF
+    # BasicInfo = pd.merge(left=BasicInfo, right=stock_prices, on="Year", how="outer") #ADDING THE STOCKPRICES DF TO THE BASICINFO DF
+    columns = list(BasicInfo.columns) + list(stock_prices.columns)[1:]
+    BasicInfo = pd.concat([BasicInfo, stock_prices], axis=1, ignore_index=True) #ADDING THE STOCKPRICES DF TO THE BASICINFO DF
+    BasicInfo.drop(BasicInfo.columns[13], axis=1, inplace=True)
+    BasicInfo.columns = columns
 
     #SAVING IT
-    BasicInfo.to_csv(f"../Invest/Data/{company_name}_basic_info_for_analysis.csv", encoding='euc-kr', index=False)
+    BasicInfo.to_csv("./Data/basic_info_for_analysis.csv", encoding='euc-kr', index=False)
 
 if __name__ == "__main__":
     main()
