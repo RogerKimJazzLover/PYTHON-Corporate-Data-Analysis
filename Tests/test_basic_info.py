@@ -6,9 +6,9 @@ sys.path.append('./')
 from API_KEYS import * #SO DELETE THIS LINE!!!!!
  
 #IMPORTING THE FILES
-import get_basic_info
-import manipulate_basic_info
+import create_basic_info
+import create_bf_for_analysis
 
 def test_everything_work():
-    get_basic_info.main()
-    manipulate_basic_info.main()
+    create_basic_info.main()
+    create_bf_for_analysis.main()
