@@ -20,11 +20,13 @@ def ShowStatusBoxPlot(data: pd.DataFrame, key: str):
     plt.show()
 
 def main():
-    company_name = "삼성전자"
+    company_name = "HMM"
 
     cols = ["Company_Name", "Year", "Current_Stock", "Future_Stock", "Operating_Income(added)_Profit_Status","Net_Income(added)_Profit_Status" ]
-    data = pd.read_csv(f"./Data/{company_name}_basic_info_for_analysis.csv", usecols=cols, encoding="euc-kr")
+    data = pd.read_csv("./Data/basic_info_for_analysis.csv", usecols=cols, encoding="euc-kr")
     data.dropna(inplace=True)
+
+    data = data[data["Company_Name"] == company_name]
 
     data["Profit"] = (data["Current_Stock"] - data["Future_Stock"]) / data["Current_Stock"] * 100
 
