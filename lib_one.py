@@ -45,72 +45,25 @@ def GetSixYearsList(year: str):
         year_list.append(str(i))
     return year_list
 
-def GetFutureStockPrice(sp_data, date):
-    '''
-    Arguments: a dataframe object containing all the stock information of the company, the date
-    Returns: the stock price closest in the future to the date given.
-    '''
-    #HAVE TO DO THIS CUZ THE sp_data returns Date as default index. So changing it back to column
-    if sp_data.index[0] != 0: #IF THE INDEX OF THE DATA IS THE TIME, NOT 0,1,...
-        sp_data.reset_index(inplace=True)  #SET TIME AS COLUMN AND REPLACE DEFAULT    
-    
-    date = pd.to_datetime(date)
-
-    if sp_data['Date'].max() < date or sp_data['Date'].min() > date:
-        #If the there isn't any stock value equivalent
-        raise custom_exceptions.StockPriceError("Given date not in the dataframe 'sp_data'", date)
-    else:
-        while True:
-            if sum(sp_data['Date'] == date) > 0:
-                sp_data = sp_data[sp_data['Date'] == date]
-                value = sp_data['Close'].iloc[0]
-                break
-            else:
-                date += pd.to_timedelta(1, 'day')
-        return value
-    
-def GetPastStockPrice(sp_data, date: str):
-    '''
-    Arguments: a dataframe object containing all the stock information of the company, the date
-    Returns: the stock price closest from the past to the date given.
-    '''
-
-    #HAVE TO DO THIS CUZ THE sp_data returns Date as default index. So changing it back to column
-    if sp_data.index[0] != 0: #IF THE INDEX OF THE DATA IS THE TIME, NOT 0,1,...
-        sp_data.reset_index(inplace=True)  #SET TIME AS COLUMN AND REPLACE DEFAULT
-    
-    date = pd.to_datetime(date)
-
-    if sp_data['Date'].max() < date or sp_data['Date'].min() > date:
-        #If the there isn't any stock value equivalent
-        raise custom_exceptions.StockPriceError("Given date not in the dataframe 'sp_data'", date)
-    else:
-        while True:
-            if sum(sp_data['Date'] == date) > 0:
-                sp_data = sp_data[sp_data['Date'] == date]
-                value = sp_data['Close'].iloc[0]
-                break
-            else:
-                date -= pd.to_timedelta(1, 'day')
-        return value
-    
-def GetDetailStockPrice(sp_data, date: str) -> dict:
+def get_stock_price(sp_data, date: str) -> dict:
     '''
     Arguments: a dataframe object containing all the stock information of the company, the date
     Returns: the high/low/close stock price closest from the past to the date given.
     '''
+    date = pd.to_datetime(date)
 
     #HAVE TO DO THIS CUZ THE sp_data returns Date as default index. So changing it back to column
     if sp_data.index[0] != 0: #IF THE INDEX OF THE DATA IS THE TIME, NOT 0,1,...
         sp_data.reset_index(inplace=True)  #SET TIME AS COLUMN AND REPLACE DEFAULT
-    
-    date = pd.to_datetime(date)
-    value = {}
 
-    if sp_data['Date'].max() < date or sp_data['Date'].min() > date:
+    #If the latest stock price is not within one week range
+    no_new_data = (date - sp_data["Date"].max()) > pd.Timedelta(days=7)
+
+    if no_new_data or sp_data['Date'].min() > date:
         #If the there isn't any stock value equivalent
         raise custom_exceptions.StockPriceError("Given date not in the dataframe 'sp_data'", date)
     else:
+        value = {}
         while True:
             if sum(sp_data['Date'] == date) > 0:
                 sp_data = sp_data[sp_data['Date'] == date]
