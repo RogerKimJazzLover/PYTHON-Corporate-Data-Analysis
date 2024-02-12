@@ -1,0 +1,37 @@
+2024-02-12 22:38:52,743 - ERROR - -----The company(373220) don't have any finstate before 2019!------
+2024-02-12 22:38:54,582 - ERROR - -----The company(005935) don't have any finstate before 2019!------
+2024-02-12 22:39:00,514 - ERROR - -----The company(105560) don't have any finstate before 2019!------
+2024-02-12 22:39:02,773 - ERROR - -----The company(055550) don't have any finstate before 2019!------
+2024-02-12 22:39:04,954 - ERROR - -----The company(032830) don't have any finstate before 2019!------
+2024-02-12 22:39:06,202 - ERROR - -----The company(086790) don't have any finstate before 2019!------
+2024-02-12 22:39:07,354 - ERROR - -----The company(000810) don't have any finstate before 2019!------
+2024-02-12 22:39:08,462 - ERROR - -----The company(138040) don't have any finstate before 2019!------
+2024-02-12 22:39:09,523 - ERROR - -----The company(323410) don't have any finstate before 2019!------
+2024-02-12 22:39:13,523 - ERROR - -----The company(450080) don't have any finstate before 2019!------
+2024-02-12 22:39:15,463 - ERROR - -----The company(316140) don't have any finstate before 2019!------
+2024-02-12 22:39:15,603 - ERROR - -----The company(024110) don't have any finstate before 2019!------
+2024-02-12 22:39:16,793 - ERROR - -----The company(259960) don't have any finstate before 2019!------
+2024-02-12 22:39:21,072 - ERROR - -----The company(329180) don't have any finstate before 2019!------
+2024-02-12 22:39:21,296 - ERROR - HTTPSConnectionPool(host='opendart.fss.or.kr', port=443): Max retries exceeded with url: /api/alotMatter.json?crtfc_key=c9c3e33ebd69e0180bafc54c2ed7f47f44663bf5&corp_code=00124504&bsns_year=2019&reprt_code=11011 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))
+2024-02-12 22:39:21,489 - ERROR - HTTPSConnectionPool(host='opendart.fss.or.kr', port=443): Max retries exceeded with url: /api/alotMatter.json?crtfc_key=c9c3e33ebd69e0180bafc54c2ed7f47f44663bf5&corp_code=00102858&bsns_year=2019&reprt_code=11011 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))
+2024-02-12 22:39:22,418 - ERROR - -----The company(022100) don't have any finstate before 2019!------
+2024-02-12 22:39:22,566 - ERROR - -----The company(402340) don't have any finstate before 2019!------
+2024-02-12 22:39:23,127 - ERROR - -----The company(009540) don't have any finstate before 2022!------
+2024-02-12 22:39:23,178 - ERROR - -----The company(003490) don't have any finstate before 2019!------
+2024-02-12 22:39:23,226 - ERROR - -----The company(352820) don't have any finstate before 2019!------
+2024-02-12 22:39:28,294 - ERROR - -----The company(005830) don't have any finstate before 2019!------
+2024-02-12 22:39:30,415 - ERROR - -----The company(326030) don't have any finstate before 2019!------
+2024-02-12 22:39:31,554 - ERROR - -----The company(377300) don't have any finstate before 2019!------
+2024-02-12 22:39:34,356 - ERROR - -----The company(088980) don't have any finstate before 2019!------
+2024-02-12 22:39:36,165 - ERROR - -----The company(005387) don't have any finstate before 2019!------
+2024-02-12 22:39:36,307 - ERROR - -----The company(006800) don't have any finstate before 2019!------
+2024-02-12 22:39:39,164 - ERROR - -----The company(302440) don't have any finstate before 2019!------
+2024-02-12 22:39:42,146 - ERROR - -----The company(454910) don't have any finstate before 2019!------
+2024-02-12 22:39:46,155 - ERROR - -----The company(361610) don't have any finstate before 2019!------
+2024-02-12 22:39:54,823 - ERROR - Given date not in the dataframe 'sp_data'
+2024-02-12 22:39:55,811 - ERROR - -----The company(029780) don't have any finstate before 2019!------
+2024-02-12 22:39:58,799 - ERROR - -----The company(005940) don't have any finstate before 2019!------
+2024-02-12 22:40:01,779 - ERROR - -----The company(071050) don't have any finstate before 2019!------
+2024-02-12 22:40:01,942 - ERROR - -----The company(016360) don't have any finstate before 2019!------
+2024-02-12 22:40:01,952 - ERROR - -----The company(005385) don't have any finstate before 2019!------
+2024-02-12 22:40:05,137 - ERROR - -----The company(001450) don't have any finstate before 2019!------
