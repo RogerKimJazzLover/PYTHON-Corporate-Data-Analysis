@@ -68,7 +68,7 @@ def main():
     stock_prices = pd.DataFrame({"Year":[], "Current_Stock":[], "Future_Stock":[]})
 
     #For logging
-    logging.basicConfig(filename="./API/api_local/logs/create_bf_for_analysis.log", level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+    logging.basicConfig(filename="./Logs/create_bf_for_analysis.log", level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
     logger = logging.getLogger()
 
     RunLoop(company_names, name_code, years, stock_prices, logger)

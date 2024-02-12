@@ -218,7 +218,7 @@ def main():
     }
 
     #For logging
-    logging.basicConfig(filename="./API/api_local/logs/create_basic_info.log", level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+    logging.basicConfig(filename="./Logs/create_basic_info.log", level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
     logger = logging.getLogger()
 
     company_names = list(name_code.keys())
