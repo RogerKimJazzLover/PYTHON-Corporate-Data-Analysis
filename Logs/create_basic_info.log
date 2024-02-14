@@ -66,3 +66,34 @@
 2024-02-13 19:39:24,283 - ERROR - -----The company(071050) don't have any finstate before 2019!------
 2024-02-13 19:39:25,304 - ERROR - -----The company(005385) don't have any finstate before 2019!------
 2024-02-13 19:39:25,453 - ERROR - -----The company(016360) don't have any finstate before 2019!------
+2024-02-14 16:04:42,554 - ERROR - -----The company(373220) don't have any finstate before 2019!------
+2024-02-14 16:04:44,901 - ERROR - could not find "005935"
+2024-02-14 16:04:52,720 - ERROR - -----The company(105560) don't have any finstate before 2019!------
+2024-02-14 16:04:55,449 - ERROR - -----The company(055550) don't have any finstate before 2019!------
+2024-02-14 16:04:58,262 - ERROR - -----The company(032830) don't have any finstate before 2019!------
+2024-02-14 16:04:59,854 - ERROR - -----The company(086790) don't have any finstate before 2019!------
+2024-02-14 16:05:00,211 - ERROR - -----The company(000810) don't have any finstate before 2019!------
+2024-02-14 16:05:01,822 - ERROR - -----The company(138040) don't have any finstate before 2019!------
+2024-02-14 16:05:02,154 - ERROR - -----The company(450080) don't have any finstate before 2019!------
+2024-02-14 16:05:03,694 - ERROR - -----The company(323410) don't have any finstate before 2019!------
+2024-02-14 16:05:11,431 - ERROR - -----The company(259960) don't have any finstate before 2019!------
+2024-02-14 16:05:11,742 - ERROR - -----The company(316140) don't have any finstate before 2019!------
+2024-02-14 16:05:12,082 - ERROR - -----The company(024110) don't have any finstate before 2019!------
+2024-02-14 16:05:17,454 - ERROR - -----The company(329180) don't have any finstate before 2019!------
+2024-02-14 16:05:19,022 - ERROR - -----The company(402340) don't have any finstate before 2019!------
+2024-02-14 16:05:21,814 - ERROR - -----The company(352820) don't have any finstate before 2019!------
+2024-02-14 16:05:29,613 - ERROR - -----The company(005830) don't have any finstate before 2019!------
+2024-02-14 16:05:30,982 - ERROR - -----The company(326030) don't have any finstate before 2019!------
+2024-02-14 16:05:33,613 - ERROR - -----The company(377300) don't have any finstate before 2019!------
+2024-02-14 16:05:37,242 - ERROR - could not find "005387"
+2024-02-14 16:05:38,744 - ERROR - 'se'
+2024-02-14 16:05:40,182 - ERROR - -----The company(006800) don't have any finstate before 2019!------
+2024-02-14 16:05:45,233 - ERROR - -----The company(302440) don't have any finstate before 2019!------
+2024-02-14 16:05:45,396 - ERROR - 'se'
+2024-02-14 16:05:51,891 - ERROR - -----The company(361610) don't have any finstate before 2019!------
+2024-02-14 16:06:03,407 - ERROR - Given date not in the dataframe 'sp_data'
+2024-02-14 16:06:05,094 - ERROR - -----The company(029780) don't have any finstate before 2019!------
+2024-02-14 16:06:08,820 - ERROR - -----The company(005940) don't have any finstate before 2019!------
+2024-02-14 16:06:11,483 - ERROR - -----The company(071050) don't have any finstate before 2019!------
+2024-02-14 16:06:12,768 - ERROR - could not find "005385"
+2024-02-14 16:06:13,134 - ERROR - -----The company(016360) don't have any finstate before 2019!------
