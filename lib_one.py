@@ -1,7 +1,7 @@
 from tabulate import tabulate
 from datetime import date
 import pandas as pd
-import time
+import time, os
 
 import custom_exceptions
 
@@ -74,3 +74,11 @@ def get_stock_price(sp_data, date: str) -> dict:
             else:
                 date -= pd.to_timedelta(1, 'day')
         return value
+    
+def get_cmpny_stock(cmpnyname: str):
+    try:
+        file_path = os.path.join(os.getcwd(), 'Data', 'Stocks', f"{cmpnyname}_stock.csv")
+        df = pd.read_csv(file_path, encoding="euc-kr", parse_dates=["Date"])
+    except FileNotFoundError:
+        raise custom_exceptions.YoungCmpny(corp_code=cmpnyname, end_year="2022") #When the Stock doesn't match
+    return df
